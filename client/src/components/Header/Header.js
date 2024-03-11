@@ -1,6 +1,7 @@
 import React from "react";
 import "../../css/Header/Header.css";
+import { words } from "../../static";
 
 export default function Header() {
-  return <header>Shopping Cart App</header>;
+  return <header>{words.headerTitle}</header>;
 }
