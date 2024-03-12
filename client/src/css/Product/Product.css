@@ -23,3 +23,22 @@
   padding: 7px;
   cursor: pointer;
 }
+
+.product-modal .close-modal-icon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.product-modal img {
+  width: 40%;
+  display: block;
+  margin: 20px auto;
+}
+.product-modal p {
+  text-align: center;
+  color: #2a5ea5;
+  font-size: 20px;
+  margin: 10px 0;
+}
