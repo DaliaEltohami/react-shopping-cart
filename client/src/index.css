@@ -23,11 +23,9 @@
 
 main {
   grid-area: "main";
-  display: flex;
-  justify-content: space-between;
   padding: 30px;
-}
-
-.filter-section {
-  width: 30%;
+  .main-section1 {
+    display: flex;
+    justify-content: space-between;
+  }
 }
