@@ -29,6 +29,6 @@
     "desc": "this is product4",
     "imageURL": "/images/product4.jpg",
     "price": 690,
-    "size": ["M", "XL"]
+    "size": ["M", "L", "XL"]
   }
 ]

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../css/Product/Product.css";
 import Modal from "react-modal";
 
-function Product({ product }) {
+function Product({ product, addToCart }) {
   const [toggleModal, setToggelModal] = useState(false);
   const openModal = () => {
     setToggelModal(true);
@@ -17,7 +17,13 @@ function Product({ product }) {
         <p className="product-title">{product.title}</p>
         <p className="product-price">{`$ ${product.price}`}</p>
       </div>
-      <button>Add To Cart</button>
+      <button
+        onClick={() => {
+          addToCart(product);
+        }}
+      >
+        Add To Cart
+      </button>
       <Modal isOpen={toggleModal} onRequestClose={closeModal}>
         <div className="product-modal">
           <span className="close-modal-icon" onClick={closeModal}>
