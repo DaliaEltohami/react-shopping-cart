@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
+import Checkout from "../Checkout/Checkout";
 
 function Cart({ cartItems, removeCartItem }) {
-  let totalCartItems = 0;
-  cartItems.forEach((element) => {
-    totalCartItems += element.qty;
-  });
+  const [checkout, setCheckout] = useState(false);
   return (
     <div className="cart-section">
-      <h2 className="cart-header">Cart Items: {totalCartItems}</h2>
+      <h2 className="cart-header">
+        Cart Items:
+        {cartItems.reduce((acc, item) => {
+          return acc + item.qty;
+        }, 0)}
+      </h2>
       <div className="cart-items">
         {cartItems.map((item) => (
           <div className="cart-item" key={item.id}>
@@ -24,7 +27,7 @@ function Cart({ cartItems, removeCartItem }) {
                 <p>Price: ${item.price}</p>
               </div>
               <button
-                className="remove-cart-item-btn"
+                className="btn cart-btn remove-cart-item-btn"
                 onClick={() => {
                   removeCartItem(item);
                 }}
@@ -35,6 +38,23 @@ function Cart({ cartItems, removeCartItem }) {
           </div>
         ))}
       </div>
+      {cartItems.length !== 0 && (
+        <div className=" cart-checkout">
+          <p className="total-price">
+            Total Price: $
+            {cartItems.reduce((acc, item) => {
+              return (acc += item.price * item.qty);
+            }, 0)}
+          </p>
+          <button
+            className="btn cart-btn checkout-btn"
+            onClick={() => setCheckout(true)}
+          >
+            Select Products
+          </button>
+        </div>
+      )}
+      {checkout && <Checkout setCheckout={setCheckout} />}
     </div>
   );
 }
