@@ -26,7 +26,7 @@ function Product({ product, addToCart }) {
       </button>
       <Modal isOpen={toggleModal} onRequestClose={closeModal}>
         <div className="product-modal">
-          <span className="close-modal-icon" onClick={closeModal}>
+          <span className="close-icon close-modal-icon" onClick={closeModal}>
             &times;
           </span>
           <img src={product.imageURL} alt={product.title}></img>

@@ -46,7 +46,7 @@ function Filter(props) {
               <option value="highest">Highest</option>
             </select>
           </div>
-          <button className="filter-btn" onClick={handleSubmit}>
+          <button className="btn2 filter-btn" onClick={handleSubmit}>
             Filter
           </button>
         </form>
