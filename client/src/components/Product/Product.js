@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../../css/Product/Product.css";
 import Modal from "react-modal";
 
-function Product({ product, addToCart }) {
+function Product(props) {
+  console.log(props);
   const [toggleModal, setToggelModal] = useState(false);
   const openModal = () => {
     setToggelModal(true);
@@ -12,14 +13,18 @@ function Product({ product, addToCart }) {
   };
   return (
     <div className="product-section">
-      <img src={product.imageURL} alt={product.id} onClick={openModal}></img>
+      <img
+        src={props.product.imageURL}
+        alt={props.product.id}
+        onClick={openModal}
+      ></img>
       <div className="product-details">
-        <p className="product-title">{product.title}</p>
-        <p className="product-price">{`$ ${product.price}`}</p>
+        <p className="product-title">{props.product.title}</p>
+        <p className="product-price">{`$ ${props.product.price}`}</p>
       </div>
       <button
         onClick={() => {
-          addToCart(product);
+          props.addToCart(props.product);
         }}
       >
         Add To Cart
@@ -29,15 +34,15 @@ function Product({ product, addToCart }) {
           <span className="close-icon close-modal-icon" onClick={closeModal}>
             &times;
           </span>
-          <img src={product.imageURL} alt={product.title}></img>
-          <p>{product.title}</p>
-          <p>{product.desc}</p>
+          <img src={props.product.imageURL} alt={props.product.title}></img>
+          <p>{props.product.title}</p>
+          <p>{props.product.desc}</p>
           <p>
-            {product.size.map((size, index) => (
+            {props.product.size.map((size, index) => (
               <span key={index}>{`${size}, `}</span>
             ))}
           </p>
-          <p>{product.price}</p>
+          <p>{props.product.price}</p>
         </div>
       </Modal>
     </div>
