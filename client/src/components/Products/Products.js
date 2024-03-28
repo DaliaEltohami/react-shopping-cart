@@ -34,7 +34,7 @@ function Products(props) {
 
 export default connect(
   (state) => {
-    return { products: state.productReducer.products };
+    return { products: state.products.filteredProducts };
   },
   { fetchProducts }
 )(Products);
