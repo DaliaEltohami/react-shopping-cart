@@ -1,1 +1,3 @@
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
+
+export const FILTER_PRODUCTS = "FILTER_PRODUCTS";

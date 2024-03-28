@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../../css/Filter/Filter.css";
+import { connect } from "react-redux";
+import { filterProducts } from "../../store/actions/products";
 
 function Filter(props) {
   const [size, setSize] = useState("ALL");
@@ -15,7 +17,7 @@ function Filter(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleFilter(size, order);
+    props.filterProducts(size, order, props.products);
   };
 
   return (
@@ -23,7 +25,8 @@ function Filter(props) {
       <h2 className="filter-section-header">Filter</h2>
       <div className="filter-body">
         <div className="Result-Number">
-          Number Of Products {props.productsCount}
+          Number Of Products{" "}
+          {props.filteredProducts ? props.filteredProducts.length : "Loading"}
         </div>
         <form className="filter-form">
           <div className="filter-types">
@@ -55,4 +58,14 @@ function Filter(props) {
   );
 }
 
-export default Filter;
+export default connect(
+  (state) => {
+    return {
+      products: state.products.products,
+      filteredProducts: state.products.filteredProducts,
+      // size: state.products.size,
+      // order: state.products.order,
+    };
+  },
+  { filterProducts }
+)(Filter);
