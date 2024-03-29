@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../css/Filter/Filter.css";
 import { connect } from "react-redux";
-import { filterProducts } from "../../store/actions/products";
+import { filterProducts } from "../../store/actions/productsActionCreators";
 
 function Filter(props) {
   const [size, setSize] = useState("ALL");
