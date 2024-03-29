@@ -54,9 +54,9 @@ function App() {
     setCartItems(filteredCartItems);
   };
 
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+  // useEffect(() => {
+  //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  // }, [cartItems]);
 
   return (
     <div className="layout">

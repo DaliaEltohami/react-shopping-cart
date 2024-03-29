@@ -3,7 +3,7 @@ import Product from "../Product/Product";
 import "../../css/Products/Products.css";
 import { Bounce, Fade, Rotate, Zoom } from "react-awesome-reveal";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../store/actions/products";
+import { fetchProducts } from "../../store/actions/productsActionCreators";
 
 function Products(props) {
   let i = 0;

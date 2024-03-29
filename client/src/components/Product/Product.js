@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../css/Product/Product.css";
 import Modal from "react-modal";
+import { connect } from "react-redux";
+import { addToCart } from "../../store/actions/cartActionCreators";
 
 function Product(props) {
   console.log(props);
@@ -48,4 +50,4 @@ function Product(props) {
     </div>
   );
 }
-export default Product;
+export default connect(null, { addToCart })(Product);
