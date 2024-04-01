@@ -47,12 +47,7 @@ function Cart(props) {
 
       {props.cartItems.length !== 0 && (
         <div className=" cart-checkout">
-          <p className="total-price">
-            Total Price: $
-            {props.cartItems.reduce((acc, item) => {
-              return (acc += item.price * item.qty);
-            }, 0)}
-          </p>
+          <p className="total-price">Total Price: ${props.cartTotal}</p>
           <button
             className="btn cart-btn checkout-btn"
             onClick={() => setCheckout(true)}
@@ -67,7 +62,7 @@ function Cart(props) {
 }
 export default connect(
   (state) => {
-    return { cartItems: state.cart.cartItems };
+    return { cartItems: state.cart.cartItems, cartTotal: state.cart.cartTotal };
   },
   { removeFromCart }
 )(Cart);

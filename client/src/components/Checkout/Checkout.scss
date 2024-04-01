@@ -23,3 +23,50 @@
     }
   }
 }
+.order-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c0c0c0;
+  margin: 20px;
+  .order-alert {
+    background-color: green;
+    padding: 10px;
+    color: #fff;
+    font-size: 22px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .order-content {
+    width: 60%;
+    margin: 10px auto;
+    table {
+      width: 100%;
+      border: 1px solid #c0c0c0;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      padding: 20px;
+      th {
+        background-color: #2a5ea5;
+        color: #fff;
+        padding: 10px;
+      }
+      tbody {
+        padding: 5px;
+        tr {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid #c0c0c0;
+          padding: 0 10px 5px;
+          margin: 20px 0;
+        }
+        .total-price {
+          font-size: 24px;
+          border: 3px solid #7a7a7a;
+          text-transform: uppercase;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
