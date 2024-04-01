@@ -18,11 +18,16 @@ export const addToCart = (product) => {
       newCartItems.push({ ...product, qty: 1 });
     }
     console.log(newCartItems);
+    let cartTotal = newCartItems.reduce((acc, item) => {
+      return (acc += item.price * item.qty);
+    }, 0);
     dispatch({
       type: ADD_TO_CART,
       cartItems: newCartItems,
+      cartTotal: cartTotal,
     });
     localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+    localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
   };
 };
 
@@ -31,10 +36,15 @@ export const removeFromCart = (product) => {
     let filteredCartItems = getState().cart.cartItems.filter(
       (item) => item._id !== product._id
     );
+    let cartTotal = filteredCartItems.reduce((acc, item) => {
+      return (acc += item.price * item.qty);
+    }, 0);
     dispatch({
       type: REMOVE_FROM_CART,
       cartItems: filteredCartItems,
+      cartTotal: cartTotal,
     });
     localStorage.setItem("cartItems", JSON.stringify(filteredCartItems));
+    localStorage.setItem("cartTotal", JSON.stringify(cartTotal));
   };
 };
