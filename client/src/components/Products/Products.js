@@ -6,10 +6,7 @@ import { connect } from "react-redux";
 import { fetchProducts } from "../../store/actions/productsActionCreators";
 
 function Products(props) {
-  let i = 0;
-  console.log(props);
   useEffect(() => {
-    console.log("effect");
     props.fetchProducts();
   }, []);
 
@@ -17,15 +14,7 @@ function Products(props) {
     <div className="products-section">
       {props.products && props.products.length > 0
         ? props.products.map((product) => {
-            i++;
-            console.log(product);
-            return (
-              <Product
-                product={product}
-                key={product._id}
-                addToCart={props.addToCart}
-              ></Product>
-            );
+            return <Product product={product} key={product._id}></Product>;
           })
         : "loading"}
     </div>
