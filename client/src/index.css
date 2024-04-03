@@ -40,19 +40,15 @@
 
 .layout {
   display: grid;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-  grid-template-rows: 80px 1fr 80px;
+  grid-template-rows: 80px 1fr 1fr 80px;
   height: 100%;
 }
 
 main {
   grid-area: "main";
   padding: 30px;
-  .main-section1 {
-    display: flex;
-    justify-content: space-between;
-  }
+}
+.main-section1 {
+  display: flex;
+  justify-content: space-between;
 }

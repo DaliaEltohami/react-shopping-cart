@@ -1,25 +1,23 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Products from "./components/Products/Products";
-import Filter from "./components/Filter/Filter";
-import Cart from "./components/Cart/Cart";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Orders from "./pages/Orders";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div className="layout">
-      <Header></Header>
-      <main>
-        <div className="main-section1">
-          <Products></Products>
-          <Filter />
-        </div>
-        <div className="main-section2">
-          <Cart />
-        </div>
-      </main>
-
-      <Footer></Footer>
-    </div>
+    <BrowserRouter>
+      <div className="layout">
+        <Header></Header>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Home />} exact></Route>
+          <Route path="/orders" element={<Orders />} exact></Route>
+        </Routes>
+        <Footer></Footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
