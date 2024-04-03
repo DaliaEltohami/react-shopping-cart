@@ -3,9 +3,9 @@ import "../../css/Product/Product.css";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { addToCart } from "../../store/actions/cartActionCreators";
+import { words } from "../../static";
 
 function Product(props) {
-  console.log(props);
   const [toggleModal, setToggelModal] = useState(false);
   const openModal = () => {
     setToggelModal(true);
@@ -29,7 +29,7 @@ function Product(props) {
           props.addToCart(props.product);
         }}
       >
-        Add To Cart
+        {words.addToCartBtn}
       </button>
       <Modal isOpen={toggleModal} onRequestClose={closeModal}>
         <div className="product-modal">

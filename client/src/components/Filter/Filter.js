@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../css/Filter/Filter.css";
 import { connect } from "react-redux";
 import { filterProducts } from "../../store/actions/productsActionCreators";
+import { words } from "../../static";
 
 function Filter(props) {
   const [size, setSize] = useState("ALL");
@@ -25,12 +26,12 @@ function Filter(props) {
       <h2 className="filter-section-header">Filter</h2>
       <div className="filter-body">
         <div className="Result-Number">
-          Number Of Products{" "}
+          {words.filterHeader}
           {props.filteredProducts ? props.filteredProducts.length : "Loading"}
         </div>
         <form className="filter-form">
           <div className="filter-types">
-            <h4>Size</h4>
+            <h4>{words.filterSizeTitle}</h4>
             <select value={size} onChange={handleSizeChange}>
               <option value="ALL">ALL</option>
               <option value="XS">XS</option>
@@ -42,15 +43,15 @@ function Filter(props) {
             </select>
           </div>
           <div className="filter-order">
-            <h4>Order</h4>
+            <h4>{words.filterOrderTitle}</h4>
             <select value={order} onChange={handleOrderChange}>
-              <option value="latest">Latest</option>
-              <option value="lowest">Lowest</option>
-              <option value="highest">Highest</option>
+              <option value="latest">{words.filterOrderLatest}</option>
+              <option value="lowest">{words.filterOrderLowest}</option>
+              <option value="highest">{words.filterOrderHighest}</option>
             </select>
           </div>
           <button className="btn2 filter-btn" onClick={handleSubmit}>
-            Filter
+            {words.filterBtn}
           </button>
         </form>
       </div>

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
 import Checkout from "../Checkout/Checkout";
-import { Bounce, Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import { connect } from "react-redux";
 import { removeFromCart } from "../../store/actions/cartActionCreators";
+import { words } from "../../static";
 
 function Cart(props) {
   const [checkout, setCheckout] = useState(false);
   return (
     <div className="cart-section">
       <h2 className="cart-header">
-        Cart Items:
+        {words.cartHeader}
         {props.cartItems.reduce((acc, item) => {
           return acc + item.qty;
         }, 0)}
@@ -27,9 +28,15 @@ function Cart(props) {
               ></img>
               <div className="cart-item-content">
                 <div className="cart-item-desc">
-                  <p>Title: {item.title}</p>
-                  <p>Qty: {item.qty}</p>
-                  <p>Price: ${item.price}</p>
+                  <p>
+                    {words.cartItemTitle} {item.title}
+                  </p>
+                  <p>
+                    {words.cartItemQty} {item.qty}
+                  </p>
+                  <p>
+                    {words.cartItemPrice} ${item.price}
+                  </p>
                 </div>
                 <button
                   className="btn cart-btn remove-cart-item-btn"
@@ -37,7 +44,7 @@ function Cart(props) {
                     props.removeFromCart(item);
                   }}
                 >
-                  Remove
+                  {words.cartItemRemoveBtn}
                 </button>
               </div>
             </div>
@@ -47,12 +54,14 @@ function Cart(props) {
 
       {props.cartItems.length !== 0 && (
         <div className=" cart-checkout">
-          <p className="total-price">Total Price: ${props.cartTotal}</p>
+          <p className="total-price">
+            {words.cartTotal} ${props.cartTotal}
+          </p>
           <button
             className="btn cart-btn checkout-btn"
             onClick={() => setCheckout(true)}
           >
-            Select Products
+            {words.SelectItemsBtn}
           </button>
         </div>
       )}
