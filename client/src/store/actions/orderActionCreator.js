@@ -1,4 +1,4 @@
-import { CREATE_ORDER, DELETE_ORDER } from "./types";
+import { CREATE_ORDER, DELETE_ORDER, FETCH_ORDERS } from "./types";
 
 export const createOrder = (order) => {
   return (dispatch) => {
@@ -26,5 +26,20 @@ export const deleteOrder = () => {
     dispatch({
       type: DELETE_ORDER,
     });
+  };
+};
+
+export const fetchOrders = () => {
+  return (dispatch) => {
+    fetch("/api/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({
+          type: FETCH_ORDERS,
+          data: {
+            orders: data,
+          },
+        });
+      });
   };
 };

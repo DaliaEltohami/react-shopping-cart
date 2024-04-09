@@ -24,7 +24,12 @@ function Checkout(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.createOrder(value);
+    const order = {
+      name: value.name,
+      email: value.email,
+      cartItems: props.cartItems,
+    };
+    props.createOrder(order);
   };
 
   const handleOrderModalClose = () => {

@@ -7,7 +7,7 @@ import { fetchProducts } from "../../store/actions/productsActionCreators";
 function Products(props) {
   useEffect(() => {
     props.fetchProducts();
-  });
+  }, []);
 
   return (
     <div className="products-section">

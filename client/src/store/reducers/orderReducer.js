@@ -1,11 +1,17 @@
-import { CREATE_ORDER, DELETE_ORDER } from "../actions/types";
+import { CREATE_ORDER, DELETE_ORDER, FETCH_ORDERS } from "../actions/types";
 
 const orderReducer = (state = {}, action) => {
   switch (action.type) {
+    case FETCH_ORDERS:
+      return {
+        ...state,
+        orders: action.data.orders,
+      };
     case CREATE_ORDER:
-      return { order: action.data.order };
+      return { ...state, order: action.data.order };
     case DELETE_ORDER:
-      return { order: false };
+      return { ...state, order: false };
+
     default:
       return state;
   }

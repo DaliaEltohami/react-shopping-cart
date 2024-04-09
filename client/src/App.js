@@ -1,8 +1,8 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Orders from "./pages/Orders";
+import Home from "./pages/Home/Home";
+import Orders from "./pages/Orders/Orders";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
