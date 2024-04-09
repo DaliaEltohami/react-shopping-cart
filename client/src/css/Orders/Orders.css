@@ -1,0 +1,23 @@
+.orders table {
+  width: 100%;
+  table-layout: fixed;
+}
+.orders table thead {
+  background-color: black;
+  color: #fff;
+  border: 2px solid black;
+  height: 50px;
+}
+.orders table tbody td {
+  padding: 10px;
+}
+.orders table tbody p {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.orders table tbody p span {
+  padding: 0 15px;
+  flex: 1;
+  margin: 0 1%;
+}

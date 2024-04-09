@@ -1,0 +1,28 @@
+.orders {
+  table {
+    width: 100%;
+    table-layout: fixed;
+
+    thead {
+      background-color: black;
+      color: #fff;
+      border: 2px solid black;
+      height: 50px;
+    }
+    tbody {
+      td {
+        padding: 10px;
+      }
+      p {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        span {
+          padding: 0 15px;
+          flex: 1;
+          margin: 0 1%;
+        }
+      }
+    }
+  }
+}
