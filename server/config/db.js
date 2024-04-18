@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const DB = () => {
   const connectionString = "mongodb://127.0.0.1:27017/react-shopping-cart";
   mongoose
-    .connect(connectionString)
+    .connect(process.env.MONGO_URI || connectionString)
     .then(() => {
       console.log("Database Connected Successfully! ");
     })
